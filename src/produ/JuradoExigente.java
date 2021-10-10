@@ -1,6 +1,8 @@
 package produ;
 import java.util.ArrayList;
 
+import produ.criterios.Criterio;
+
 public class JuradoExigente extends Jurado {
 	//Atributos
 	private ArrayList<Participante> equipo;
@@ -11,5 +13,9 @@ public class JuradoExigente extends Jurado {
     }
 	
 	//Metodos
-    //public void agregarParticipante(Participante)
+    public void agregarParticipante(Participante p, Criterio criterio) {
+    	if(!equipo.contains(p) && criterio.cumple(p)) {
+    		equipo.add(p);
+    	}
+    }
 }

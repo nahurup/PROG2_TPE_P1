@@ -1,8 +1,6 @@
 package produ;
 import java.util.ArrayList;
 
-import farmacia.Medicamento;
-
 public class Jurado {
 	//Atributos
 	private ArrayList<Participante> equipo;
