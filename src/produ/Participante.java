@@ -30,6 +30,21 @@ public class Participante {
 	public int getEdad() {
 		return this.edad;
 	}
+	public ArrayList<String> getGeneros() {
+		ArrayList<String> lista_temp = new ArrayList<String>();
+		lista_temp = this.generosMusicales;
+		return lista_temp;
+	}
+	public ArrayList<String> getIdiomas() {
+		ArrayList<String> lista_temp = new ArrayList<String>();
+		lista_temp = this.idiomas;
+		return lista_temp;
+	}
+	public ArrayList<String> getInstrumentos() {
+		ArrayList<String> lista_temp = new ArrayList<String>();
+		lista_temp = this.instrumentos;
+		return lista_temp;
+	}
 	public boolean tieneIdioma(String idioma) {
 		if(idiomas.contains(idioma)) {
 			return true;
@@ -65,4 +80,15 @@ public class Participante {
 			this.instrumentos.add(instrumento);
 		}
 	}
+	
+    @Override
+    public boolean equals(Object o) {
+        try {
+            Participante that = (Participante) o;
+            return this.getNombre().equals(that.getNombre()) &&
+            		this.getApellido().equals(that.getApellido());
+        } catch (Exception e){
+            return false;
+        }
+    }
 }
