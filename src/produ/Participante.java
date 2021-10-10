@@ -21,16 +21,48 @@ public class Participante {
 	}
 	
 	//Metodos
-	//public String getNombre()
-	//public String getApellido()
-	//public int getEdad()
-	//public boolean tieneIdioma(String idioma)
-	//public boolean tieneGenero(String genero)
-	//public boolean tieneInstrumento(String instrumento)
+	public String getNombre() {
+		return this.nombre;
+	}
+	public String getApellido() {
+		return this.apellido;
+	}
+	public int getEdad() {
+		return this.edad;
+	}
+	public boolean tieneIdioma(String idioma) {
+		if(idiomas.contains(idioma)) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	public boolean tieneGenero(String genero) {
+		if(generosMusicales.contains(genero)) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	public boolean tieneInstrumento(String instrumento) {
+		if(instrumentos.contains(instrumento)) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 	public void addGenerosMusicales(String genero) {
         if (!generosMusicales.contains(genero))
             this.generosMusicales.add(genero);
 	}
-	//public void addIdiomas()
-	//public void addInstrumentos()
+	public void addIdioma(String idioma) {
+		if(!idiomas.contains(idioma)) {
+			this.idiomas.add(idioma);
+		}
+	}
+	public void addInstrumento(String instrumento) {
+		if(!instrumentos.contains(instrumento)) {
+			this.instrumentos.add(instrumento);
+		}
+	}
 }
