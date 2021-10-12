@@ -66,7 +66,7 @@ public class Participante {
 			return false;
 		}
 	}
-	public void addGenerosMusicales(String genero) {
+	public void addGeneroMusical(String genero) {
         if (!generosMusicales.contains(genero))
             this.generosMusicales.add(genero);
 	}
@@ -80,6 +80,15 @@ public class Participante {
 			this.instrumentos.add(instrumento);
 		}
 	}
+	
+    @Override
+    public String toString() {
+        return "Participante{" +
+                "nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", edad=" + edad +
+                '}'+"\n";
+    }
 	
     @Override
     public boolean equals(Object o) {

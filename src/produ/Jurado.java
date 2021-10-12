@@ -1,4 +1,5 @@
 package produ;
+import produ.criterios.Criterio;
 import java.util.ArrayList;
 
 public class Jurado {
@@ -11,6 +12,13 @@ public class Jurado {
     }
 	
 	//Metodos
+    public ArrayList<Participante> seleccionarParticipantes(Criterio criterio){
+        ArrayList<Participante> losQueCumplen = new ArrayList();
+        for (Participante p: equipo) //foreach
+            if (criterio.cumple(p))
+                losQueCumplen.add(p);
+        return losQueCumplen;
+    }
     //public Participante getParticipante()
 	public ArrayList<String> getListaGeneros() {
 		ArrayList<String> lista_temp = new ArrayList<String>();
@@ -52,5 +60,19 @@ public class Jurado {
     	if(!equipo.contains(p)) {
     		equipo.add(p);
     	}
+    }
+    
+    private String printParticipantes() {
+    	String temp = null;
+		for (Participante p: equipo) {
+			temp += p.toString();
+		}
+		
+		return temp;
+    }
+    
+    @Override
+    public String toString() {
+        return "Jurado: " + printParticipantes() + " ";
     }
 }
