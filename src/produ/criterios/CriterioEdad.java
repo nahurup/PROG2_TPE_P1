@@ -1,8 +1,11 @@
 package produ.criterios;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import produ.Participante;
 
-public class CriterioEdad extends Criterio {
+public class CriterioEdad implements Criterio {
     private int edad;
 
     public CriterioEdad(int edad) {
@@ -10,7 +13,9 @@ public class CriterioEdad extends Criterio {
     }
 
     @Override
-    public boolean cumple(Participante p) {
-        return p.getEdad() > edad;
+    public List<Participante> filter(List<Participante> participantes) {
+        return participantes.stream()
+                .filter(participante -> participante.getEdad() > edad)
+                .collect(Collectors.toList());
     }
 }

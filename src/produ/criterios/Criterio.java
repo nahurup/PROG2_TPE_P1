@@ -1,8 +1,9 @@
 package produ.criterios;
 
+import java.util.List;
+
 import produ.Participante;
 
-
-public abstract class Criterio {
-    public abstract boolean cumple(Participante p);
+public interface Criterio {
+	List<Participante> filter(List<Participante> participantes);
 }

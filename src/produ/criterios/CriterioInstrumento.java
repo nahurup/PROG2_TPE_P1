@@ -1,24 +1,20 @@
 package produ.criterios;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import produ.Participante;
 
-public class CriterioInstrumento extends Criterio {
-    private String instrumento;
+public class CriterioInstrumento extends CriterioString {
 
     public CriterioInstrumento(String instrumento) {
-        this.instrumento = instrumento;
-    }
-
-    public String getInstrumento() {
-        return instrumento;
-    }
-
-    public void setInstrumento(String instrumento) {
-        this.instrumento = instrumento;
+        super(instrumento);
     }
 
     @Override
-    public boolean cumple(Participante p) {
-        return p.tieneInstrumento(instrumento);
+    public List<Participante> filter(List<Participante> participantes) {
+        return participantes.stream()
+                .filter(participante -> participante.getInstrumentos().contains(getPalabra()))
+                .collect(Collectors.toList());
     }
 }
