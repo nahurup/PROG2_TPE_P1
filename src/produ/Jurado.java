@@ -12,12 +12,11 @@ public class Jurado {
     }
 	
 	//Metodos
-    public ArrayList<Participante> seleccionarParticipantes(Criterio criterio){
-        ArrayList<Participante> losQueCumplen = new ArrayList();
-        for (Participante p: equipo) //foreach
-            if (criterio.cumple(p))
-                losQueCumplen.add(p);
-        return losQueCumplen;
+    public ArrayList<Participante> getEquipo(){
+        ArrayList<Participante> lista_equipo = new ArrayList();
+        lista_equipo = equipo;
+        
+        return lista_equipo;
     }
     //public Participante getParticipante()
 	public ArrayList<String> getListaGeneros() {

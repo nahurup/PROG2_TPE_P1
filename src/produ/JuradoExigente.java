@@ -1,5 +1,6 @@
 package produ;
 import java.util.ArrayList;
+import java.util.List;
 
 import produ.criterios.Criterio;
 import produ.criterios.CriterioGenero;
@@ -16,19 +17,20 @@ public class JuradoExigente extends Jurado {
     }
 	
 	//Metodos
-    public void agregarParticipante(Participante p, String instrumento, String idioma, String genero) {
+    public void agregarParticipante(Participante p, Criterio criterio) {
+    	
     	if(!equipo.contains(p)) {
-    		
-        	Criterio crit_instrumento = new CriterioInstrumento(instrumento);
-        	Criterio crit_idioma = new CriterioIdioma(idioma);
-        	Criterio crit_genero = new CriterioGenero(genero);
+        	List<Participante> resultado = new ArrayList<>();
+        	resultado.add(p);
+        	resultado = criterio.filter(resultado);
         	
-        	if (crit_instrumento.cumple(p) && crit_idioma.cumple(p) && crit_genero.cumple(p)) {
+        	if(resultado.contains(p)) {
         		equipo.add(p);
-        	} else {
+        	}else {
         		System.out.println("No cumple requisitos.");
         	}
-        	
+
     	}
+    	
     }
 }

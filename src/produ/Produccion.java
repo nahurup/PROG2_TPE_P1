@@ -1,11 +1,10 @@
 package produ;
-import produ.criterios.Criterio;
-import produ.criterios.CriterioEdad;
-import produ.criterios.CriterioGenero;
-import produ.criterios.CriterioIdioma;
-import produ.criterios.CriterioInstrumento;
+import produ.criterios.Criterios;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import static produ.criterios.Criterios.*;
 
 public class Produccion {
 	//Atributos
@@ -28,16 +27,15 @@ public class Produccion {
     	j1.agregarParticipante(p1);
     	j1.agregarParticipante(p2);
     	j1.agregarParticipante(p3);
-    	
-    	System.out.println(j1.toString());
 
-
-        ArrayList<Participante> resultado = new ArrayList<>();
-        resultado = j1.seleccionarParticipantes(new CriterioEdad(15));
-        resultado = j1.seleccionarParticipantes(new CriterioGenero("cumbia"));
-        resultado = j1.seleccionarParticipantes(new CriterioIdioma("japones"));
-        resultado = j1.seleccionarParticipantes(new CriterioInstrumento("bongoes"));
+        List<Participante> resultado = new ArrayList<>();
+        
+        resultado = j1.getEquipo();
         
         System.out.println(resultado);
+
+        System.out.println(Criterios.and(sabeIdioma("ingles"), tieneGenero("ingles")).filter(resultado));
+        System.out.println(Criterios.or(sabeIdioma("ingles"), mayorDe(30)).filter(resultado));
+        System.out.println(Criterios.not(sabeIdioma("ingles")).filter(resultado));
     }
 }
