@@ -24,34 +24,39 @@ public class Participante {
 	public String getNombre() {
 		return this.nombre;
 	}
+	
 	public String getApellido() {
 		return this.apellido;
 	}
+	
 	public int getEdad() {
 		return this.edad;
 	}
+	
 	public ArrayList<String> getGeneros() {
-		ArrayList<String> lista_temp = new ArrayList<String>();
-		lista_temp = this.generosMusicales;
-		return lista_temp;
+		ArrayList<String> copia = this.generosMusicales;
+		return copia;
 	}
+	
 	public ArrayList<String> getIdiomas() {
-		ArrayList<String> lista_temp = new ArrayList<String>();
-		lista_temp = this.idiomas;
-		return lista_temp;
+		ArrayList<String> copia = this.idiomas;
+		return copia;
 	}
+	
 	public ArrayList<String> getInstrumentos() {
-		ArrayList<String> lista_temp = new ArrayList<String>();
-		lista_temp = this.instrumentos;
-		return lista_temp;
+		ArrayList<String> copia = this.instrumentos;
+		return copia;
 	}
+	
 	public boolean tieneIdioma(String idioma) {
 		if(idiomas.contains(idioma)) {
 			return true;
-		}else {
+		}
+		else {
 			return false;
 		}
 	}
+	
 	public boolean tieneGenero(String genero) {
 		if(generosMusicales.contains(genero)) {
 			return true;
@@ -59,27 +64,33 @@ public class Participante {
 			return false;
 		}
 	}
+	
 	public boolean tieneInstrumento(String instrumento) {
 		if(instrumentos.contains(instrumento)) {
 			return true;
-		}else {
+		}
+		else {
 			return false;
 		}
 	}
+	
 	public void addGeneroMusical(String genero) {
         if (!generosMusicales.contains(genero))
             this.generosMusicales.add(genero);
 	}
+	
 	public void addIdioma(String idioma) {
 		if(!idiomas.contains(idioma)) {
 			this.idiomas.add(idioma);
 		}
 	}
+	
 	public void addInstrumento(String instrumento) {
 		if(!instrumentos.contains(instrumento)) {
 			this.instrumentos.add(instrumento);
 		}
 	}
+	
 	
     @Override
     public String toString() {

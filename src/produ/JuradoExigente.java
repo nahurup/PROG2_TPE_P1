@@ -7,7 +7,7 @@ import produ.criterios.CriterioGenero;
 import produ.criterios.CriterioIdioma;
 import produ.criterios.CriterioInstrumento;
 
-public class JuradoExigente extends Jurado {
+public class JuradoExigente extends Coach {
 	//Atributos
 	private ArrayList<Participante> equipo;
 	

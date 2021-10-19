@@ -2,24 +2,24 @@ package produ;
 import produ.criterios.Criterio;
 import java.util.ArrayList;
 
-public class Jurado {
+public class Coach {
 	//Atributos
 	private ArrayList<Participante> equipo;
 	
 	//Constructor
-    public Jurado(){
+    public Coach(){
         this.equipo = new ArrayList<>();
     }
 	
 	//Metodos
     public ArrayList<Participante> getEquipo(){
-        ArrayList<Participante> lista_equipo = new ArrayList();
-        lista_equipo = equipo;
+        ArrayList<Participante> copia = this.equipo;
         
-        return lista_equipo;
+        return copia;
     }
     //public Participante getParticipante()
 	public ArrayList<String> getListaGeneros() {
+		
 		ArrayList<String> lista_temp = new ArrayList<String>();
 		for (Participante p: equipo) {
 			p.getGeneros().removeAll(lista_temp);
