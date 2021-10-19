@@ -7,16 +7,22 @@ public class Coach {
 	private ArrayList<Participante> equipo;
 	
 	//Constructor
-    public Coach(){
+    public Coach (){
         this.equipo = new ArrayList<>();
     }
 	
-	//Metodos
     public ArrayList<Participante> getEquipo(){
         ArrayList<Participante> copia = this.equipo;
         
         return copia;
     }
+    
+    public void addParticipante(Participante p) {
+    	if(!equipo.contains(p)) {
+    		equipo.add(p);
+    	}
+    }
+    
     //public Participante getParticipante()
 	public ArrayList<String> getListaGeneros() {
 		
@@ -43,23 +49,15 @@ public class Coach {
 		}
 		return lista_temp;
 	}
+	
 	public int getPromedioEdad() {
-		ArrayList<Integer> lista_edades = new ArrayList<>();
 		int suma = 0;
 		for (Participante p: equipo) {
-			lista_edades.add(p.getEdad());
-		}
-		for (int i : lista_edades) {
-			suma = suma + i;
+			suma += p.getEdad();
 		}
 		
-		return (suma/lista_edades.size());
+		return (suma/this.equipo.size());
 	}
-    public void agregarParticipante(Participante p) {
-    	if(!equipo.contains(p)) {
-    		equipo.add(p);
-    	}
-    }
     
     private String printParticipantes() {
     	String temp = null;

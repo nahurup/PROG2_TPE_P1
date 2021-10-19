@@ -19,4 +19,19 @@ public class Cancion {
 		this.instrumentosImplementados.add(instr);
 	}
 	
+	public String getTitulo () {
+		return this.titulo;
+	}
+	public String getIdioma () {
+		return this.idioma;
+	}
+	public ArrayList<String> getGeneros () {
+		ArrayList<String> copia = this.generos;
+		return copia;
+	}
+	public ArrayList<String> getInstrumentos () {
+		ArrayList<String> copia = this.instrumentosImplementados;
+		return copia;
+	}
+	
 }
