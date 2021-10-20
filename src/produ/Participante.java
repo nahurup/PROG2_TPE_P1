@@ -48,32 +48,6 @@ public class Participante {
 		return copia;
 	}
 	
-	public boolean tieneIdioma(String idioma) {
-		if(idiomas.contains(idioma)) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-	
-	public boolean tieneGenero(String genero) {
-		if(generosMusicales.contains(genero)) {
-			return true;
-		}else {
-			return false;
-		}
-	}
-	
-	public boolean tieneInstrumento(String instrumento) {
-		if(instrumentos.contains(instrumento)) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-	
 	public void addGeneroMusical(String genero) {
         if (!generosMusicales.contains(genero))
             this.generosMusicales.add(genero);

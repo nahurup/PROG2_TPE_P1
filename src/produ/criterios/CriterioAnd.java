@@ -4,14 +4,18 @@ import java.util.List;
 import produ.Participante;
 
 
-public class CriterioAnd extends CriterioBinario {
+public class CriterioAnd implements Criterio {
 
-    public CriterioAnd(Criterio a, Criterio b) {
-        super(a, b);
+	private Criterio c1, c2;
+	
+    public CriterioAnd(Criterio c1, Criterio c2) {
+        this.c1 = c1;
+        this.c2 = c2;
     }
 
-    @Override
-    public List<Participante> filter(List<Participante> participantes) {
-        return getA().filter(getB().filter(participantes));
-    }
+	@Override
+	public Boolean cumpleConCriterio(Participante participante) {
+		return (c1.cumpleConCriterio(participante) && c2.cumpleConCriterio(participante));
+	}
+	
 }

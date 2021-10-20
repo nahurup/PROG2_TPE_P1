@@ -1,5 +1,7 @@
 package produ;
 import produ.criterios.Criterio;
+import produ.criterios.CriterioEdad;
+
 import java.util.ArrayList;
 
 public class Coach {
@@ -25,7 +27,6 @@ public class Coach {
     
     //public Participante getParticipante()
 	public ArrayList<String> getListaGeneros() {
-		
 		ArrayList<String> lista_temp = new ArrayList<String>();
 		for (Participante p: equipo) {
 			p.getGeneros().removeAll(lista_temp);
@@ -33,6 +34,7 @@ public class Coach {
 		}
 		return lista_temp;
 	}
+	
 	public ArrayList<String> getListaIdiomas() {
 		ArrayList<String> lista_temp = new ArrayList<String>();
 		for (Participante p: equipo) {
@@ -41,6 +43,7 @@ public class Coach {
 		}
 		return lista_temp;
 	}
+	
 	public ArrayList<String> getListaInstrumentos() {
 		ArrayList<String> lista_temp = new ArrayList<String>();
 		for (Participante p: equipo) {
@@ -59,17 +62,13 @@ public class Coach {
 		return (suma/this.equipo.size());
 	}
     
-    private String printParticipantes() {
-    	String temp = null;
-		for (Participante p: equipo) {
-			temp += p.toString();
-		}
-		
-		return temp;
-    }
-    
-    @Override
-    public String toString() {
-        return "Jurado: " + printParticipantes() + " ";
+    public ArrayList<Participante> seleccionarParticipante (Criterio criterio) {
+    	ArrayList<Participante> listaFiltrada = new ArrayList<>();
+    	for (Participante p:this.equipo) {
+    		if (criterio.cumpleConCriterio(p)) {
+    			listaFiltrada.add(p);
+    		}
+    	}
+    	return listaFiltrada;
     }
 }

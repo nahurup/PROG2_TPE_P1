@@ -12,12 +12,10 @@ public class CriterioNot implements Criterio {
         this.criterio = criterio;
     }
 
-    @Override
-    public List<Participante> filter(List<Participante> participantes) {
-        List<Participante> filtrado = criterio.filter(participantes);
-        return participantes.stream()
-                .filter(participante -> !filtrado.contains(participante))
-                .collect(Collectors.toList());
+	@Override
+	public Boolean cumpleConCriterio(Participante participante) {
+		return !this.criterio.cumpleConCriterio(participante);
+	}
 
-    }
+
 }

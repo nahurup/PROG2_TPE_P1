@@ -1,21 +1,19 @@
 package produ.criterios;
-
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import produ.Participante;
 
+public class CriterioOr implements Criterio {
+	
+	private Criterio c1, c2;
 
-
-public class CriterioOr extends CriterioBinario {
-
-    public CriterioOr(Criterio a, Criterio b) {
-        super(a, b);
+    public CriterioOr(Criterio c1, Criterio c2) {
+        this.c1 = c1;
+        this.c2 = c2;
     }
 
-    @Override
-    public List<Participante> filter(List<Participante> participantes) {
-        return Stream.concat(getA().filter(participantes).stream(), getB().filter(participantes).stream())
-                .collect(Collectors.toList());
-    }
+	@Override
+	public Boolean cumpleConCriterio(Participante participante) {
+		return (c1.cumpleConCriterio(participante) || c2.cumpleConCriterio(participante));
+	}
+    
+
 }

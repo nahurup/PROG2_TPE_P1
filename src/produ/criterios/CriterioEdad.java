@@ -12,10 +12,15 @@ public class CriterioEdad implements Criterio {
         this.edad = edad;
     }
 
-    @Override
-    public List<Participante> filter(List<Participante> participantes) {
-        return participantes.stream()
-                .filter(participante -> participante.getEdad() > edad)
-                .collect(Collectors.toList());
-    }
+	@Override
+	public Boolean cumpleConCriterio(Participante participante) {
+		if (participante.getEdad() > this.edad) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+    
 }

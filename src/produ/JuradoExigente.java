@@ -3,34 +3,46 @@ import java.util.ArrayList;
 import java.util.List;
 
 import produ.criterios.Criterio;
-import produ.criterios.CriterioGenero;
-import produ.criterios.CriterioIdioma;
-import produ.criterios.CriterioInstrumento;
+import produ.criterios.CriteriosContainsString.CriterioContainsString;
+import produ.criterios.CriteriosContainsString.CriterioGenero;
+import produ.criterios.CriteriosContainsString.CriterioIdioma;
+import produ.criterios.CriteriosContainsString.CriterioInstrumento;
 
 public class JuradoExigente extends Coach {
 	//Atributos
-	private ArrayList<Participante> equipo;
+	private ArrayList<Criterio> listaRestricciones;
 	
 	//Constructor
     public JuradoExigente(){
-        super();
+        this.listaRestricciones = new ArrayList<>();
+    }
+    
+    public void addRestriccion (Criterio criterio) {
+    	if (!this.listaRestricciones.contains(criterio)) {
+    		this.listaRestricciones.add(criterio);
+    	}
+    }
+    
+    public void limpiarListaRestricciones () {
+    	this.listaRestricciones.removeAll(listaRestricciones);
+    }
+    
+    public ArrayList<Criterio> getRestricciones () {
+    	ArrayList<Criterio> copia = this.listaRestricciones;
+    	return copia;
     }
 	
 	//Metodos
-    public void agregarParticipante(Participante p, Criterio criterio) {
-    	
-    	if(!equipo.contains(p)) {
-        	List<Participante> resultado = new ArrayList<>();
-        	resultado.add(p);
-        	resultado = criterio.filter(resultado);
-        	
-        	if(resultado.contains(p)) {
-        		equipo.add(p);
-        	}else {
-        		System.out.println("No cumple requisitos.");
-        	}
-
+    @Override
+    public void addParticipante(Participante p) {
+    	int criteriosCumplidos = 0;
+    	for (Criterio criterio:this.listaRestricciones) {
+    		if (criterio.cumpleConCriterio(p)) {
+    			criteriosCumplidos++;
+    		}
     	}
-    	
+    	if (criteriosCumplidos == this.listaRestricciones.size()) {
+    		this.addParticipante(p);
+    	}
     }
 }
