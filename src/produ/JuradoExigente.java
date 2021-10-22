@@ -28,7 +28,7 @@ public class JuradoExigente extends Coach {
     }
     
     public ArrayList<Criterio> getRestricciones () {
-    	ArrayList<Criterio> copia = this.listaRestricciones;
+    	ArrayList<Criterio> copia = new ArrayList<>(this.listaRestricciones);
     	return copia;
     }
 	

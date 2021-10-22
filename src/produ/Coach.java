@@ -62,7 +62,7 @@ public class Coach {
 		return (suma/this.equipo.size());
 	}
     
-    public ArrayList<Participante> seleccionarParticipante (Criterio criterio) {
+    public ArrayList<Participante> seleccionarParticipantes (Criterio criterio) {
     	ArrayList<Participante> listaFiltrada = new ArrayList<>();
     	for (Participante p:this.equipo) {
     		if (criterio.cumpleConCriterio(p)) {

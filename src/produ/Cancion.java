@@ -26,11 +26,11 @@ public class Cancion {
 		return this.idioma;
 	}
 	public ArrayList<String> getGeneros () {
-		ArrayList<String> copia = this.generos;
+		ArrayList<String> copia = new ArrayList<>(this.generos);
 		return copia;
 	}
 	public ArrayList<String> getInstrumentos () {
-		ArrayList<String> copia = this.instrumentosImplementados;
+		ArrayList<String> copia = new ArrayList<>(this.instrumentosImplementados);
 		return copia;
 	}
 	

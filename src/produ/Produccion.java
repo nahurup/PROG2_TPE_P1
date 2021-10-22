@@ -18,7 +18,7 @@ public class Produccion {
 	}
 	
 	public ArrayList<Coach> getJurados () {
-		ArrayList<Coach> copia = this.jurados;
+		ArrayList<Coach> copia = new ArrayList<>(this.jurados);
 		return copia;
 	}
 	
@@ -29,7 +29,7 @@ public class Produccion {
 	}
 	
 	public ArrayList<Cancion> getCanciones () {
-		ArrayList<Cancion> copia = this.cancionesDisponibles;
+		ArrayList<Cancion> copia = new ArrayList<>(this.cancionesDisponibles);
 		return copia;
 	}
 }

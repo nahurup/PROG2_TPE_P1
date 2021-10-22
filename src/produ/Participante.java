@@ -34,17 +34,17 @@ public class Participante {
 	}
 	
 	public ArrayList<String> getGeneros() {
-		ArrayList<String> copia = this.generosMusicales;
+		ArrayList<String> copia = new ArrayList<>(this.generosMusicales);
 		return copia;
 	}
 	
 	public ArrayList<String> getIdiomas() {
-		ArrayList<String> copia = this.idiomas;
+		ArrayList<String> copia = new ArrayList<>(this.idiomas);
 		return copia;
 	}
 	
 	public ArrayList<String> getInstrumentos() {
-		ArrayList<String> copia = this.instrumentos;
+		ArrayList<String> copia = new ArrayList<>(this.instrumentos);
 		return copia;
 	}
 	
