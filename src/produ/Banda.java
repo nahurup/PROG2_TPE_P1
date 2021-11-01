@@ -25,6 +25,16 @@ public class Banda extends ElementoConcurso {
         return nombre;
     }
     
+    @Override
+	public boolean cumpleCon(Criterio cr) {
+    	for (ElementoConcurso e: elementos) {
+    		if (!e.cumpleCon(cr))
+    			return false;
+    	}
+    	
+    	return true;
+	}
+    
 	@Override
 	public ArrayList<String> getGeneros() {
 		boolean first = true;

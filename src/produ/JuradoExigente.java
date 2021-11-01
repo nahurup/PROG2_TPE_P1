@@ -34,15 +34,15 @@ public class JuradoExigente extends Coach {
 	
 	//Metodos
     @Override
-    public void addParticipante(Participante p) {
+    public void addParticipante(ElementoConcurso e) {
     	int criteriosCumplidos = 0;
     	for (Criterio criterio:this.listaRestricciones) {
-    		if (criterio.cumpleConCriterio(p)) {
+    		if (e.cumpleCon(criterio)) {
     			criteriosCumplidos++;
     		}
     	}
     	if (criteriosCumplidos == this.listaRestricciones.size()) {
-    		this.addParticipante(p);
+    		this.addParticipante(e);
     	}
     }
 }

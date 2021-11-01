@@ -31,6 +31,14 @@ public class Participante extends ElementoConcurso {
         return participantes;
     }
 	
+	@Override
+	public boolean cumpleCon(Criterio cr) {
+		if (cr.cumpleConCriterio(this))
+			return true;
+		else
+			return false;
+	}
+	
 	//Metodos
 	public String getNombre() {
 		return this.nombre;
