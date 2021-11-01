@@ -2,6 +2,7 @@ package produ.criterios;
 
 import java.util.ArrayList;
 
+import produ.ElementoConcurso;
 import produ.Participante;
 
 public class CriterioVariosIdiomas implements Criterio {
@@ -13,8 +14,8 @@ public class CriterioVariosIdiomas implements Criterio {
 	}
 
 	@Override
-	public Boolean cumpleConCriterio(Participante participante) {
-		return (participante.getIdiomas().containsAll(listaIdiomas));
+	public Boolean cumpleConCriterio(ElementoConcurso e) {
+		return (e.getIdiomas().containsAll(listaIdiomas));
 	}
 	
 }

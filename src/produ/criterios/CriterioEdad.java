@@ -3,6 +3,7 @@ package produ.criterios;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import produ.ElementoConcurso;
 import produ.Participante;
 
 public class CriterioEdad implements Criterio {
@@ -13,8 +14,8 @@ public class CriterioEdad implements Criterio {
     }
 
 	@Override
-	public Boolean cumpleConCriterio(Participante participante) {
-		if (participante.getEdad() > this.edad) {
+	public Boolean cumpleConCriterio(ElementoConcurso e) {
+		if (e.getEdad() > this.edad) {
 			return true;
 		}
 		else {

@@ -1,6 +1,8 @@
 package produ.criterios;
 
 import java.util.List;
+
+import produ.ElementoConcurso;
 import produ.Participante;
 
 
@@ -14,8 +16,8 @@ public class CriterioAnd implements Criterio {
     }
 
 	@Override
-	public Boolean cumpleConCriterio(Participante participante) {
-		return (c1.cumpleConCriterio(participante) && c2.cumpleConCriterio(participante));
+	public Boolean cumpleConCriterio(ElementoConcurso e) {
+		return (c1.cumpleConCriterio(e) && c2.cumpleConCriterio(e));
 	}
 	
 }

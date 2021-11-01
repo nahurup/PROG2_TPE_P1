@@ -91,13 +91,14 @@ public class Banda extends ElementoConcurso {
 	}
 
     @Override
-    public ArrayList<Participante> participantesCon(Criterio cr) {
-        ArrayList<Participante> participantesCon = new ArrayList<>();
+    public ArrayList<ElementoConcurso> participantesCon(Criterio cr) {
+        ArrayList<ElementoConcurso> participantesCon = new ArrayList<>();
         for (ElementoConcurso e: elementos) {
-            participantesCon.addAll(e.participantesCon(cr));
-            //NO HACER ESTO:
-            //if (fi.cumple(e))
-            //    empleadosConEspecialidad.add(e);
+        	if(cr.cumpleConCriterio(this)) {
+        		participantesCon.add(this);
+        	} else {
+                participantesCon.addAll(e.participantesCon(cr));
+        	}
         }
         return participantesCon;
     }

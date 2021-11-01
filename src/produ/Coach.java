@@ -3,6 +3,8 @@ import produ.criterios.Criterio;
 import produ.criterios.CriterioEdad;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Coach {
 	//Atributos
@@ -26,12 +28,15 @@ public class Coach {
     }
     
     //public Participante getParticipante()
-	public ArrayList<String> getListaGeneros() {
+	public ArrayList<String> getListaGeneros(Comparator<String> orden) {
 		ArrayList<String> lista_temp = new ArrayList<String>();
 		for (ElementoConcurso e: equipo) {
 			e.getGeneros().removeAll(lista_temp);
 			lista_temp.addAll(e.getGeneros());
 		}
+		
+		lista_temp.sort(orden);
+		
 		return lista_temp;
 	}
 	

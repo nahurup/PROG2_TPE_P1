@@ -1,4 +1,5 @@
 package produ.criterios;
+import produ.ElementoConcurso;
 import produ.Participante;
 
 public class CriterioOr implements Criterio {
@@ -11,8 +12,8 @@ public class CriterioOr implements Criterio {
     }
 
 	@Override
-	public Boolean cumpleConCriterio(Participante participante) {
-		return (c1.cumpleConCriterio(participante) || c2.cumpleConCriterio(participante));
+	public Boolean cumpleConCriterio(ElementoConcurso e) {
+		return (c1.cumpleConCriterio(e) || c2.cumpleConCriterio(e));
 	}
     
 
