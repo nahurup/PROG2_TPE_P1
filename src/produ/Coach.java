@@ -27,6 +27,12 @@ public class Coach {
     	}
     }
     
+    public ArrayList<ElementoConcurso> ordernadoFormaGanar(Comparator<ElementoConcurso> orden) {
+    	ArrayList<ElementoConcurso> aux = getEquipo();
+    	aux.sort(orden);
+    	return aux;
+    }
+    
     //public Participante getParticipante()
 	public ArrayList<String> getListaGeneros(Comparator<String> orden) {
 		ArrayList<String> lista_temp = new ArrayList<String>();
