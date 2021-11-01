@@ -1,7 +1,10 @@
 package produ;
 import java.util.ArrayList;
+import java.util.Comparator;
 
-public class Participante {
+import produ.criterios.Criterio;
+
+public class Participante extends ElementoConcurso {
 	//Atributos
 	private String nombre;
 	private String apellido;
@@ -20,6 +23,14 @@ public class Participante {
 		this.instrumentos = new ArrayList<>();
 	}
 	
+	@Override
+    public ArrayList<Participante> participantesCon(Criterio cr) {
+        ArrayList<Participante> participantes = new ArrayList<>();
+        if (cr.cumpleConCriterio(this))
+            participantes.add(this);
+        return participantes;
+    }
+	
 	//Metodos
 	public String getNombre() {
 		return this.nombre;
@@ -29,45 +40,77 @@ public class Participante {
 		return this.apellido;
 	}
 	
+	@Override
 	public int getEdad() {
 		return this.edad;
 	}
 	
+	@Override
 	public ArrayList<String> getGeneros() {
 		ArrayList<String> copia = new ArrayList<>(this.generosMusicales);
 		return copia;
 	}
 	
+	@Override
 	public ArrayList<String> getIdiomas() {
 		ArrayList<String> copia = new ArrayList<>(this.idiomas);
 		return copia;
 	}
 	
+	@Override
 	public ArrayList<String> getInstrumentos() {
 		ArrayList<String> copia = new ArrayList<>(this.instrumentos);
 		return copia;
 	}
 	
-	public void addGeneroMusical(String genero) {
-        if (!generosMusicales.contains(genero))
-            this.generosMusicales.add(genero);
+	public void addGenerosMusicales(ArrayList<String> generos) {
+        if (!generosMusicales.contains(generos))
+            this.generosMusicales.addAll(generos);
 	}
 	
-	public void addIdioma(String idioma) {
-		if(!idiomas.contains(idioma)) {
-			this.idiomas.add(idioma);
+	public void addIdiomas(ArrayList<String> idiomas) {
+		if(!idiomas.contains(idiomas)) {
+			this.idiomas.addAll(idiomas);
 		}
 	}
 	
-	public void addInstrumento(String instrumento) {
-		if(!instrumentos.contains(instrumento)) {
-			this.instrumentos.add(instrumento);
+	public void addInstrumentos(ArrayList<String> instrumentos) {
+		if(!instrumentos.contains(instrumentos)) {
+			this.instrumentos.addAll(instrumentos);
 		}
 	}
 	
+    @Override
+    public ElementoConcurso copia(){
+    	Participante p = new Participante(this.getNombre(),
+                this.getApellido(),
+                this.getEdad());
+    	p.addGenerosMusicales(this.generosMusicales);
+    	p.addIdiomas(this.idiomas);
+    	p.addInstrumentos(this.instrumentos);
+    	
+    	return p;
+    }
+
+    @Override
+    public ElementoConcurso copia(Criterio cr){
+        if (cr.cumpleConCriterio(this)) {
+        	Participante p = new Participante(this.getNombre(),
+                    this.getApellido(),
+                    this.getEdad());
+        	p.addGenerosMusicales(this.generosMusicales);
+        	p.addIdiomas(this.idiomas);
+        	p.addInstrumentos(this.instrumentos);
+        	
+        	return p;
+        }
+        else
+            return null;
+    }
 	
     @Override
     public String toString() {
+    	//agregar listas
         return "Participante{" +
                 "nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
