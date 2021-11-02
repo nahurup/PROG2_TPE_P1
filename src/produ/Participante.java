@@ -24,8 +24,8 @@ public class Participante extends ElementoConcurso {
 	}
 	
 	@Override
-    public ArrayList<Participante> participantesCon(Criterio cr) {
-        ArrayList<Participante> participantes = new ArrayList<>();
+    public ArrayList<ElementoConcurso> participantesCon(Criterio cr) {
+        ArrayList<ElementoConcurso> participantes = new ArrayList<>();
         if (cr.cumpleConCriterio(this))
             participantes.add(this);
         return participantes;
