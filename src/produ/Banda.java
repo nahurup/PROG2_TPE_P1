@@ -102,8 +102,10 @@ public class Banda extends ElementoConcurso {
         ArrayList<ElementoConcurso> participantesCon = new ArrayList<>();
         for (ElementoConcurso e: elementos) {
         	if(cr.cumpleConCriterio(this)) {
+        		//si banda o grupo cumple con lo que busca el jurado, se retorna la banda
         		participantesCon.add(this);
         	} else {
+        		//si no cumple, se buscan posibles miembros de la banda que si cumplan
                 participantesCon.addAll(e.participantesCon(cr));
         	}
         }

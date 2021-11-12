@@ -32,9 +32,9 @@ public class Batalla {
 		
 		for(Comparator f: formasBatalla) {
 			if (f.compare(e1, e2) == 1) {
-				result = f.compare(e1, e2);
+				return result = f.compare(e1, e2);
 			} else if (f.compare(e1, e2) == -1) {
-				result = f.compare(e1, e2);
+				return result = f.compare(e1, e2);
 			} 
 		}
 		
