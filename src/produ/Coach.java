@@ -27,10 +27,11 @@ public class Coach {
     	}
     }
     
-    public ArrayList<ElementoConcurso> ordernadoFormaGanar(Comparator<ElementoConcurso> orden) {
-    	ArrayList<ElementoConcurso> aux = getEquipo();
-    	aux.sort(orden);
-    	return aux;
+    //hagamos que ordene su propia lista, no que ordene un aux y devuelva eso
+    //ya que los comparadores son la forma de ganar, le decimos que ordene
+    //con el comparador que va a ser usado como forma de ganar
+    public void ordernarFormaGanar(Comparator<ElementoConcurso> orden) {
+    	this.equipo.sort(orden);
     }
     
     //public Participante getParticipante()

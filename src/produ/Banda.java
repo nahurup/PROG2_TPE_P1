@@ -39,12 +39,15 @@ public class Banda extends ElementoConcurso {
 	public ArrayList<String> getGeneros() {
 		boolean first = true;
 		ArrayList<String> generosPreferencia = new ArrayList<>();
-		//interseccion
+		//los generos de preferencia se calculan como la intersección
+		//de los generos de preferencia de todos su miembros
 		for (ElementoConcurso e: elementos) {
 			if (first) {
 				generosPreferencia.addAll(e.getGeneros());
 				first = false;
 			} else {
+				//elimina todos los elementos de la lista que no le indiquemos en la 
+				//colección que pasamos como parámetro al método
 				generosPreferencia.retainAll(e.getGeneros());
 			}
 		}
@@ -54,6 +57,8 @@ public class Banda extends ElementoConcurso {
 	
 	@Override
 	public ArrayList<String> getIdiomas() {
+		//los idiomas que puede interpretar la banda se considera la unión
+		//de los idiomas de todos sus miembros (sin repetidos)
 		ArrayList<String> idiomasPreferencia = new ArrayList<>();
 		ArrayList<String> aux = new ArrayList<>();
 		for (ElementoConcurso e: elementos) {
@@ -67,6 +72,8 @@ public class Banda extends ElementoConcurso {
 	
 	@Override
 	public ArrayList<String> getInstrumentos() {
+		//los instrumentos que puede interpretar la banda se considera la unión
+		//de los instrumentos de todos sus miembros (sin repetidos)
 		ArrayList<String> instrumentosPreferencia = new ArrayList<>();
 		ArrayList<String> aux = new ArrayList<>();
 		for (ElementoConcurso e: elementos) {
