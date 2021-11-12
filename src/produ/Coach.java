@@ -37,9 +37,11 @@ public class Coach {
     //public Participante getParticipante()
 	public ArrayList<String> getListaGeneros(Comparator<String> orden) {
 		ArrayList<String> lista_temp = new ArrayList<String>();
+		ArrayList<String> aux = new ArrayList<String>();
 		for (ElementoConcurso e: equipo) {
-			e.getGeneros().removeAll(lista_temp);
-			lista_temp.addAll(e.getGeneros());
+			aux = e.getGeneros();
+			aux.removeAll(lista_temp);
+			lista_temp.addAll(aux);
 		}
 		
 		lista_temp.sort(orden);
@@ -49,18 +51,22 @@ public class Coach {
 	
 	public ArrayList<String> getListaIdiomas() {
 		ArrayList<String> lista_temp = new ArrayList<String>();
+		ArrayList<String> aux = new ArrayList<String>();
 		for (ElementoConcurso e: equipo) {
-			e.getIdiomas().removeAll(lista_temp);
-			lista_temp.addAll(e.getIdiomas());
+			aux = e.getIdiomas();
+			aux.removeAll(lista_temp);
+			lista_temp.addAll(aux);
 		}
 		return lista_temp;
 	}
 	
 	public ArrayList<String> getListaInstrumentos() {
 		ArrayList<String> lista_temp = new ArrayList<String>();
+		ArrayList<String> aux = new ArrayList<String>();
 		for (ElementoConcurso e: equipo) {
-			e.getInstrumentos().removeAll(lista_temp);
-			lista_temp.addAll(e.getInstrumentos());
+			aux = e.getInstrumentos();
+			aux.removeAll(lista_temp);
+			lista_temp.addAll(aux);
 		}
 		return lista_temp;
 	}
