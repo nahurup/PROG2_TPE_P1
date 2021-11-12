@@ -1,8 +1,8 @@
-package produ;
-import produ.criterios.Criterio;
-import produ.criterios.CriterioEdad;
-
+package produccion;
 import java.util.ArrayList;
+
+import produccion.criterios.Criterio;
+import produccion.criterios.CriterioEdad;
 
 public class Coach {
 	//Atributos
@@ -14,9 +14,7 @@ public class Coach {
     }
 	
     public ArrayList<Participante> getEquipo(){
-        ArrayList<Participante> copia = this.equipo;
-        
-        return copia;
+        return new ArrayList<Participante>(equipo);
     }
     
     public void addParticipante(Participante p) {
@@ -25,7 +23,6 @@ public class Coach {
     	}
     }
     
-    //public Participante getParticipante()
 	public ArrayList<String> getListaGeneros() {
 		ArrayList<String> lista_temp = new ArrayList<String>();
 		for (Participante p: equipo) {

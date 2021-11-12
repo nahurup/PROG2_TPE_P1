@@ -1,9 +1,9 @@
-package produ.criterios;
+package produccion.criterios;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import produ.Participante;
+import produccion.Participante;
 
 public class CriterioEdad implements Criterio {
     private int edad;

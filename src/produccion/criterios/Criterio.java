@@ -1,6 +1,6 @@
-package produ.criterios;
+package produccion.criterios;
 
-import produ.Participante;
+import produccion.Participante;
 
 public interface Criterio {
 	Boolean cumpleConCriterio (Participante participante);

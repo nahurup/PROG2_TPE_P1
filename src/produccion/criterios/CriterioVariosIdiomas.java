@@ -1,8 +1,8 @@
-package produ.criterios;
+package produccion.criterios;
 
 import java.util.ArrayList;
 
-import produ.Participante;
+import produccion.Participante;
 
 public class CriterioVariosIdiomas implements Criterio {
 

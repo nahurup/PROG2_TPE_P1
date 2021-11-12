@@ -1,12 +1,12 @@
-package produ;
+package produccion;
 import java.util.ArrayList;
 import java.util.List;
 
-import produ.criterios.Criterio;
-import produ.criterios.CriteriosContainsString.CriterioContainsString;
-import produ.criterios.CriteriosContainsString.CriterioGenero;
-import produ.criterios.CriteriosContainsString.CriterioIdioma;
-import produ.criterios.CriteriosContainsString.CriterioInstrumento;
+import produccion.criterios.Criterio;
+import produccion.criterios.CriteriosContainsString.CriterioContainsString;
+import produccion.criterios.CriteriosContainsString.CriterioGenero;
+import produccion.criterios.CriteriosContainsString.CriterioIdioma;
+import produccion.criterios.CriteriosContainsString.CriterioInstrumento;
 
 public class JuradoExigente extends Coach {
 	//Atributos

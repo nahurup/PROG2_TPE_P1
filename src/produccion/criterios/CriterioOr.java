@@ -1,5 +1,5 @@
-package produ.criterios;
-import produ.Participante;
+package produccion.criterios;
+import produccion.Participante;
 
 public class CriterioOr implements Criterio {
 	

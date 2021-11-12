@@ -1,6 +1,6 @@
-package produ.criterios.CriteriosContainsString;
-import produ.Participante;
-import produ.criterios.Criterio;
+package produccion.criterios.CriteriosContainsString;
+import produccion.Participante;
+import produccion.criterios.Criterio;
 
 public abstract class CriterioContainsString implements Criterio {
 

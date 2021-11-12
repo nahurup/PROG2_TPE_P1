@@ -1,4 +1,4 @@
-package produ.criterios.CriteriosContainsString;
+package produccion.criterios.CriteriosContainsString;
 
 public class CriterioIdioma extends CriterioContainsString {
 

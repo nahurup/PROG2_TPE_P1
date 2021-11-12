@@ -1,7 +1,8 @@
-package produ.criterios;
+package produccion.criterios;
 
 import java.util.List;
-import produ.Participante;
+
+import produccion.Participante;
 
 
 public class CriterioAnd implements Criterio {

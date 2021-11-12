@@ -1,4 +1,4 @@
-package produ;
+package produccion;
 import java.util.ArrayList;
 
 public class Produccion {
