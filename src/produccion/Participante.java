@@ -1,9 +1,8 @@
 package produccion;
 import java.util.ArrayList;
 
-public class Participante {
-	//Atributos
-	private String nombre;
+public class Participante extends ElementoConcurso{
+
 	private String apellido;
 	private int edad;
 	private ArrayList<String> generosMusicales;
@@ -12,7 +11,7 @@ public class Participante {
 	
 	//Constructor
 	public Participante(String nombre, String apellido, int edad) {
-		this.nombre = nombre;
+		super(nombre);
 		this.apellido = apellido;
 		this.edad = edad;
 		this.generosMusicales = new ArrayList<>();;
