@@ -1,6 +1,8 @@
 package produccion;
 import java.util.ArrayList;
 
+import produccion.criterios.Criterio;
+
 public class Participante extends ElementoConcurso{
 
 	private String apellido;
@@ -84,4 +86,14 @@ public class Participante extends ElementoConcurso{
             return false;
         }
     }
+
+	@Override
+	public ArrayList<ElementoConcurso> busqueda(Criterio C) {
+		ArrayList<ElementoConcurso> resultado = new ArrayList<>();
+		if (C.cumpleConCriterio(this)) {
+			resultado.add(this);
+		}
+		return resultado;	
+	}
+	
 }

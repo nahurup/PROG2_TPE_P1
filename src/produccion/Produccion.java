@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Produccion {
 	//Atributos
 	private ArrayList<Coach> jurados;
-	private ArrayList<Cancion> cancionesDisponibles;
+	private ArrayList<TemaMusical> cancionesDisponibles;
 	
 	public Produccion () {
 		this.jurados = new ArrayList<>();
@@ -22,14 +22,14 @@ public class Produccion {
 		return copia;
 	}
 	
-	public void addCancion (Cancion cancion) {
-		if (!this.cancionesDisponibles.contains(cancion)) {
-			this.cancionesDisponibles.add(cancion);
+	public void addCancion (TemaMusical temaMusical) {
+		if (!this.cancionesDisponibles.contains(temaMusical)) {
+			this.cancionesDisponibles.add(temaMusical);
 		}
 	}
 	
-	public ArrayList<Cancion> getCanciones () {
-		ArrayList<Cancion> copia = new ArrayList<>(this.cancionesDisponibles);
+	public ArrayList<TemaMusical> getCanciones () {
+		ArrayList<TemaMusical> copia = new ArrayList<>(this.cancionesDisponibles);
 		return copia;
 	}
 }

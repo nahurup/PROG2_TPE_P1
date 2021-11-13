@@ -1,7 +1,7 @@
 package produccion.criterios;
 
-import produccion.Participante;
+import produccion.ElementoConcurso;
 
 public interface Criterio {
-	Boolean cumpleConCriterio (Participante participante);
+	Boolean cumpleConCriterio (ElementoConcurso miembro);
 }

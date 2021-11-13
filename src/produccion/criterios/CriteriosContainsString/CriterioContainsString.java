@@ -1,5 +1,5 @@
 package produccion.criterios.CriteriosContainsString;
-import produccion.Participante;
+import produccion.ElementoConcurso;
 import produccion.criterios.Criterio;
 
 public abstract class CriterioContainsString implements Criterio {
@@ -15,8 +15,8 @@ public abstract class CriterioContainsString implements Criterio {
     }
     
 	@Override
-	public Boolean cumpleConCriterio(Participante participante) {
-		if (participante.getGeneros().contains(this.getPalabra())) {
+	public Boolean cumpleConCriterio(ElementoConcurso miembro) {
+		if (miembro.getGeneros().contains(this.getPalabra())) {
 			return true;
 		}
 		else {

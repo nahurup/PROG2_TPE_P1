@@ -1,20 +1,20 @@
 package produccion;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import produccion.criterios.Criterio;
-import produccion.criterios.CriterioEdad;
 
 public class Coach {
 	//Atributos
-	private ArrayList<Participante> equipo;
+	private ArrayList<ElementoConcurso> equipo;
 	
 	//Constructor
     public Coach (){
         this.equipo = new ArrayList<>();
     }
 	
-    public ArrayList<Participante> getEquipo(){
-        return new ArrayList<Participante>(equipo);
+    public ArrayList<ElementoConcurso> getEquipo(){
+        return new ArrayList<ElementoConcurso>(equipo);
     }
     
     public void addParticipante(Participante p) {
@@ -23,47 +23,65 @@ public class Coach {
     	}
     }
     
+    public int getEdadEquipo() {
+    	int sumatoriaEdad = 0;
+		int totalMiembros = 0;
+		for (ElementoConcurso E:equipo) {
+			sumatoriaEdad += E.getEdad();
+			totalMiembros++;
+		}
+		
+		return sumatoriaEdad/totalMiembros;
+    }
+    
 	public ArrayList<String> getListaGeneros() {
 		ArrayList<String> lista_temp = new ArrayList<String>();
-		for (Participante p: equipo) {
-			p.getGeneros().removeAll(lista_temp);
-			lista_temp.addAll(p.getGeneros());
+		for (ElementoConcurso p: equipo) {
+			ArrayList<String> aux = p.getGeneros();
+			aux.removeAll(lista_temp);
+			lista_temp.addAll(aux);
 		}
+		Collections.sort(lista_temp);
 		return lista_temp;
 	}
 	
 	public ArrayList<String> getListaIdiomas() {
 		ArrayList<String> lista_temp = new ArrayList<String>();
-		for (Participante p: equipo) {
-			p.getIdiomas().removeAll(lista_temp);
-			lista_temp.addAll(p.getIdiomas());
+		for (ElementoConcurso E: equipo) {
+			ArrayList<String> aux = E.getIdiomas();
+			aux.removeAll(lista_temp);
+			lista_temp.addAll(aux);
 		}
 		return lista_temp;
 	}
 	
 	public ArrayList<String> getListaInstrumentos() {
 		ArrayList<String> lista_temp = new ArrayList<String>();
-		for (Participante p: equipo) {
-			p.getInstrumentos().removeAll(lista_temp);
-			lista_temp.addAll(p.getInstrumentos());
+		for (ElementoConcurso E: equipo) {
+			ArrayList<String> aux = E.getInstrumentos();
+			aux.removeAll(lista_temp);
+			lista_temp.addAll(aux);
 		}
 		return lista_temp;
 	}
 	
 	public int getPromedioEdad() {
 		int suma = 0;
-		for (Participante p: equipo) {
-			suma += p.getEdad();
+		for (ElementoConcurso E: equipo) {
+			suma += E.getEdad();
 		}
 		
 		return (suma/this.equipo.size());
 	}
     
-    public ArrayList<Participante> seleccionarParticipantes (Criterio criterio) {
-    	ArrayList<Participante> listaFiltrada = new ArrayList<>();
-    	for (Participante p:this.equipo) {
-    		if (criterio.cumpleConCriterio(p)) {
-    			listaFiltrada.add(p);
+    public ArrayList<ElementoConcurso> seleccionarParticipantes (Criterio criterio) {
+    	ArrayList<ElementoConcurso> listaFiltrada = new ArrayList<>();
+    	for (ElementoConcurso E:this.equipo) {
+    		if (criterio.cumpleConCriterio(E)) {
+    			listaFiltrada.add(E);
+    		}
+    		else {
+    			listaFiltrada.addAll(E.busqueda(criterio));
     		}
     	}
     	return listaFiltrada;

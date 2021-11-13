@@ -1,15 +1,24 @@
 package produccion;
 import java.util.ArrayList;
 
-public class Cancion {
+import produccion.criterios.Criterio;
+import produccion.EstrategiasTemasMusicales.Estrategia;
+
+public class TemaMusical {
 	private String titulo;
 	private String idioma;
 	private ArrayList<String> generos;
 	private ArrayList<String> instrumentosImplementados;
+	private Estrategia Estrategia;
 	
-	public Cancion (String titulo, String idioma) {
+	public TemaMusical (String titulo, String idioma, Estrategia estrategia) {
 		this.titulo = titulo;
 		this.idioma = idioma;
+		this.Estrategia = estrategia;
+	}
+	
+	public void setEstrategia (Estrategia E) {
+		this.Estrategia = E;
 	}
 	
 	public void addGenero (String genero) {
@@ -24,6 +33,9 @@ public class Cancion {
 	}
 	public String getIdioma () {
 		return this.idioma;
+	}
+	public Estrategia getEstrategia () {
+		return this.Estrategia;
 	}
 	public ArrayList<String> getGeneros () {
 		ArrayList<String> copia = new ArrayList<>(this.generos);

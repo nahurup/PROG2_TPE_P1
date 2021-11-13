@@ -1,5 +1,5 @@
 package produccion.criterios;
-import produccion.Participante;
+import produccion.ElementoConcurso;
 
 public class CriterioOr implements Criterio {
 	
@@ -11,8 +11,8 @@ public class CriterioOr implements Criterio {
     }
 
 	@Override
-	public Boolean cumpleConCriterio(Participante participante) {
-		return (c1.cumpleConCriterio(participante) || c2.cumpleConCriterio(participante));
+	public Boolean cumpleConCriterio(ElementoConcurso miembro) {
+		return (c1.cumpleConCriterio(miembro) || c2.cumpleConCriterio(miembro));
 	}
     
 

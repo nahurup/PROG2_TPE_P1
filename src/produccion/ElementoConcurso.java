@@ -2,6 +2,8 @@ package produccion;
 
 import java.util.ArrayList;
 
+import produccion.criterios.Criterio;
+
 public abstract class ElementoConcurso {
 
 	protected String nombre;
@@ -12,4 +14,7 @@ public abstract class ElementoConcurso {
 	
 	public abstract int getEdad ();
 	public abstract ArrayList<String> getGeneros();
+	public abstract ArrayList<String> getIdiomas();
+	public abstract ArrayList<String> getInstrumentos();
+	public abstract ArrayList<ElementoConcurso> busqueda (Criterio C);
 }

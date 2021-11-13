@@ -2,6 +2,8 @@ package produccion;
 
 import java.util.ArrayList;
 
+import produccion.criterios.Criterio;
+
 public class Banda extends ElementoConcurso {
 
 	private ArrayList<ElementoConcurso> miembros;
@@ -36,6 +38,46 @@ public class Banda extends ElementoConcurso {
 			}
 		}
 		return totalGeneros;
+	}
+
+	@Override
+	public ArrayList<String> getIdiomas() {
+		ArrayList<String> totalIdiomas = new ArrayList<>();
+		
+		for (ElementoConcurso E:miembros) {
+			ArrayList<String> aux = E.getIdiomas();
+			aux.removeAll(totalIdiomas);
+			totalIdiomas.addAll(aux);
+		}
+		
+		return totalIdiomas;
+	}
+
+	@Override
+	public ArrayList<String> getInstrumentos() {
+		ArrayList<String> totalInstrumentos = new ArrayList<>();
+		
+		for (ElementoConcurso E:miembros) {
+			ArrayList<String> aux = E.getInstrumentos();
+			aux.removeAll(totalInstrumentos);
+			totalInstrumentos.addAll(aux);
+		}
+		
+		return totalInstrumentos;
+	}
+
+	@Override
+	public ArrayList<ElementoConcurso> busqueda(Criterio C) {
+		ArrayList<ElementoConcurso> resultado = new ArrayList<>();
+    	for (ElementoConcurso E:this.miembros) {
+    		if (C.cumpleConCriterio(E)) {
+    			resultado.add(E);
+    		}
+    		else {
+    			resultado.addAll(E.busqueda(C));
+    		}
+    	}
+    	return resultado;
 	}
 	
 	

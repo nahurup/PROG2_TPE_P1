@@ -1,9 +1,6 @@
 package produccion.criterios;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
-import produccion.Participante;
+import produccion.ElementoConcurso;
 
 public class CriterioNot implements Criterio {
 
@@ -14,8 +11,8 @@ public class CriterioNot implements Criterio {
     }
 
 	@Override
-	public Boolean cumpleConCriterio(Participante participante) {
-		return !this.criterio.cumpleConCriterio(participante);
+	public Boolean cumpleConCriterio(ElementoConcurso miembro) {
+		return !this.criterio.cumpleConCriterio(miembro);
 	}
 
 

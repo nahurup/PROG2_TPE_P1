@@ -1,47 +1,27 @@
 package produccion;
-import java.util.ArrayList;
-import java.util.List;
 
 import produccion.criterios.Criterio;
-import produccion.criterios.CriteriosContainsString.CriterioContainsString;
-import produccion.criterios.CriteriosContainsString.CriterioGenero;
-import produccion.criterios.CriteriosContainsString.CriterioIdioma;
-import produccion.criterios.CriteriosContainsString.CriterioInstrumento;
 
 public class JuradoExigente extends Coach {
 	//Atributos
-	private ArrayList<Criterio> listaRestricciones;
+	private Criterio estrategia;
 	
 	//Constructor
-    public JuradoExigente(){
-        this.listaRestricciones = new ArrayList<>();
+    public JuradoExigente(Criterio estrategia){
+        this.estrategia = estrategia;
     }
     
-    public void addRestriccion (Criterio criterio) {
-    	if (!this.listaRestricciones.contains(criterio)) {
-    		this.listaRestricciones.add(criterio);
-    	}
+    public void setEstrategia (Criterio E) {
+    	this.estrategia = E;
     }
     
-    public void limpiarListaRestricciones () {
-    	this.listaRestricciones.removeAll(listaRestricciones);
-    }
-    
-    public ArrayList<Criterio> getRestricciones () {
-    	ArrayList<Criterio> copia = new ArrayList<>(this.listaRestricciones);
-    	return copia;
+    public Criterio getEstrategia () {
+    	return this.estrategia;
     }
 	
-	//Metodos
     @Override
     public void addParticipante(Participante p) {
-    	int criteriosCumplidos = 0;
-    	for (Criterio criterio:this.listaRestricciones) {
-    		if (criterio.cumpleConCriterio(p)) {
-    			criteriosCumplidos++;
-    		}
-    	}
-    	if (criteriosCumplidos == this.listaRestricciones.size()) {
+    	if (estrategia.cumpleConCriterio(p)) {
     		this.addParticipante(p);
     	}
     }
