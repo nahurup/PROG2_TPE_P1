@@ -86,4 +86,10 @@ public class Coach {
     	}
     	return listaFiltrada;
     }
+    
+    public ArrayList<ElementoConcurso> posiblesGanadores (Batalla batalla) {
+    	ArrayList<ElementoConcurso> copia = this.getEquipo();
+    	Collections.sort(copia, batalla.getDeterminante());
+    	return copia;
+    }
 }
