@@ -95,5 +95,6 @@ public class Participante extends ElementoConcurso{
 		}
 		return resultado;	
 	}
+
 	
 }

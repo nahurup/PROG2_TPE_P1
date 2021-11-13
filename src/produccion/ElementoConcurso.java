@@ -17,4 +17,8 @@ public abstract class ElementoConcurso {
 	public abstract ArrayList<String> getIdiomas();
 	public abstract ArrayList<String> getInstrumentos();
 	public abstract ArrayList<ElementoConcurso> busqueda (Criterio C);
+	
+	public Boolean puedeInterpretarTema(TemaMusical T) {
+		return T.getEstrategia().cumpleConCriterio(this);
+	}
 }

@@ -1,7 +1,5 @@
 package produccion;
 import java.util.ArrayList;
-
-import produccion.criterios.Criterio;
 import produccion.EstrategiasTemasMusicales.Estrategia;
 
 public class TemaMusical {
