@@ -69,14 +69,24 @@ public class Banda extends ElementoConcurso {
 	@Override
 	public ArrayList<ElementoConcurso> busqueda(Criterio C) {
 		ArrayList<ElementoConcurso> resultado = new ArrayList<>();
-    	for (ElementoConcurso E:this.miembros) {
-    		if (C.cumpleConCriterio(E)) {
-    			resultado.add(E);
-    		}
-    		else {
-    			resultado.addAll(E.busqueda(C));
-    		}
-    	}
+		//chequeamos si el cumple con lo solicitado
+		if (C.cumpleConCriterio(this)) {
+			resultado.add(this);
+		} else {
+			//si no cumple recorremos sus miembros
+	    	for (ElementoConcurso E:this.miembros) {
+	    		//chequeamos si el miembro banda/participante cumple con los criterios
+	    		if (C.cumpleConCriterio(E)) {
+	    			resultado.add(E);
+	    		}
+	    		//si no cumple, si es banda chequea sus miembros si es participante
+	    		//en su metodo busqueda se agrega a si mismo
+	    		else {
+	    			resultado.addAll(E.busqueda(C));
+	    		}
+	    	}
+		}
+
     	return resultado;
 	}
 	
