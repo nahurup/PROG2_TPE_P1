@@ -1,6 +1,7 @@
 package produccion;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 import produccion.criterios.Criterio;
 
@@ -77,19 +78,14 @@ public class Coach {
     public ArrayList<ElementoConcurso> seleccionarParticipantes (Criterio criterio) {
     	ArrayList<ElementoConcurso> listaFiltrada = new ArrayList<>();
     	for (ElementoConcurso E:this.equipo) {
-    		if (criterio.cumpleConCriterio(E)) {
-    			listaFiltrada.add(E);
-    		}
-    		else {
-    			listaFiltrada.addAll(E.busqueda(criterio));
-    		}
+    		listaFiltrada.addAll(E.busqueda(criterio));
     	}
     	return listaFiltrada;
     }
     
-    public ArrayList<ElementoConcurso> posiblesGanadores (Batalla batalla) {
+    public ArrayList<ElementoConcurso> posiblesGanadores (Comparator<ElementoConcurso> determinante) {
     	ArrayList<ElementoConcurso> copia = this.getEquipo();
-    	Collections.sort(copia, batalla.getDeterminante());
+    	Collections.sort(copia, determinante);
     	return copia;
     }
 }
