@@ -18,7 +18,31 @@ public abstract class ElementoConcurso {
 	public abstract ArrayList<String> getInstrumentos();
 	public abstract ArrayList<ElementoConcurso> busqueda (Criterio C);
 	
-	public Boolean puedeInterpretarTema(TemaMusical T) {
-		return T.getEstrategia().cumpleConCriterio(this);
+	public Boolean contieneGenero (String genero) {
+		if (this.getGeneros().contains(genero)) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
+	public Boolean contieneIdioma (String idioma) {
+		if (this.getIdiomas().contains(idioma)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	public Boolean contieneInstrumento (String instrumento) {
+		if (this.getInstrumentos().contains(instrumento)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	
+	
 }

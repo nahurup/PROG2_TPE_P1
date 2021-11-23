@@ -1,4 +1,4 @@
-package produccion.criterios.CriteriosContainsString;
+package produccion.criterios;
 
 public class CriterioInstrumento extends CriterioContainsString {
 
