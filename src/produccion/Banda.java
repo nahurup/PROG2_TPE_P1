@@ -89,6 +89,13 @@ public class Banda extends ElementoConcurso {
 
     	return resultado;
 	}
+
+	@Override
+	public ArrayList<ElementoConcurso> getMiembros() {
+		ArrayList<ElementoConcurso> copia = new ArrayList<>();
+		copia.addAll(this.miembros);
+		return copia;
+	}
 	
 	
 }

@@ -1,21 +1,21 @@
 package produccion;
 import java.util.ArrayList;
-import produccion.EstrategiasTemasMusicales.Estrategia;
+import produccion.criterios.Criterio;
 
 public class TemaMusical {
 	private String titulo;
 	private String idioma;
 	private ArrayList<String> generos;
 	private ArrayList<String> instrumentosImplementados;
-	private Estrategia Estrategia;
+	private Criterio Estrategia;
 	
-	public TemaMusical (String titulo, String idioma, Estrategia estrategia) {
+	public TemaMusical (String titulo, String idioma, Criterio estrategia) {
 		this.titulo = titulo;
 		this.idioma = idioma;
 		this.Estrategia = estrategia;
 	}
 	
-	public void setEstrategia (Estrategia E) {
+	public void setEstrategia (Criterio E) {
 		this.Estrategia = E;
 	}
 	
@@ -32,7 +32,7 @@ public class TemaMusical {
 	public String getIdioma () {
 		return this.idioma;
 	}
-	public Estrategia getEstrategia () {
+	public Criterio getEstrategia () {
 		return this.Estrategia;
 	}
 	public ArrayList<String> getGeneros () {
@@ -42,6 +42,9 @@ public class TemaMusical {
 	public ArrayList<String> getInstrumentos () {
 		ArrayList<String> copia = new ArrayList<>(this.instrumentosImplementados);
 		return copia;
+	}
+	public Boolean puedeInterpretarlo (ElementoConcurso mimebro) {
+		return this.Estrategia.cumpleConCriterio(mimebro);
 	}
 	
 }

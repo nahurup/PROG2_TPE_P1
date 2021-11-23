@@ -2,11 +2,11 @@ package produccion.criterios;
 
 import produccion.ElementoConcurso;
 
-public class CriterioNot implements Criterio {
+public class CriterioNOT implements Criterio {
 
     private Criterio criterio;
 
-    public CriterioNot(Criterio criterio) {
+    public CriterioNOT(Criterio criterio) {
         this.criterio = criterio;
     }
 

@@ -4,7 +4,7 @@ import produccion.ElementoConcurso;
 
 public class CriterioGenero implements Criterio {
 
-private String genero;
+	private String genero;
 	
 	public CriterioGenero (String genero) {
 		this.genero = genero;

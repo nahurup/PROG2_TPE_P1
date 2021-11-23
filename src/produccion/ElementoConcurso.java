@@ -16,7 +16,8 @@ public abstract class ElementoConcurso {
 	public abstract ArrayList<String> getGeneros();
 	public abstract ArrayList<String> getIdiomas();
 	public abstract ArrayList<String> getInstrumentos();
-	public abstract ArrayList<ElementoConcurso> busqueda (Criterio C);
+	public abstract ArrayList<ElementoConcurso> busqueda(Criterio C);
+	public abstract ArrayList<ElementoConcurso> getMiembros();
 	
 	public Boolean contieneGenero (String genero) {
 		if (this.getGeneros().contains(genero)) {
@@ -28,6 +29,14 @@ public abstract class ElementoConcurso {
 	}
 	public Boolean contieneIdioma (String idioma) {
 		if (this.getIdiomas().contains(idioma)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	public Boolean contieneIdiomas (ArrayList<String> idiomas) {
+		if (this.getIdiomas().containsAll(idiomas)) {
 			return true;
 		}
 		else {

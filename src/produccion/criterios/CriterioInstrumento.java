@@ -1,9 +1,18 @@
 package produccion.criterios;
 
-public class CriterioInstrumento extends CriterioContainsString {
+import produccion.ElementoConcurso;
 
-    public CriterioInstrumento(String instrumento) {
-        super(instrumento);
-    }
+public class CriterioInstrumento implements Criterio {
+	
+	private String instrumento;
+	
+	 public CriterioInstrumento(String instrumento) {
+		this.instrumento = instrumento;
+	}
+
+	@Override
+	public Boolean cumpleConCriterio(ElementoConcurso miembro) {
+		return miembro.contieneInstrumento(instrumento);
+	}
 
 }

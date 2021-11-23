@@ -96,5 +96,12 @@ public class Participante extends ElementoConcurso{
 		return resultado;	
 	}
 
+	@Override
+	public ArrayList<ElementoConcurso> getMiembros() {
+		ArrayList<ElementoConcurso> copia = new ArrayList<>();
+		copia.add(this);
+		return copia;
+	}
+
 	
 }

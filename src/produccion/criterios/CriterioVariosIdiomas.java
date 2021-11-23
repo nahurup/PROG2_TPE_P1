@@ -3,7 +3,6 @@ package produccion.criterios;
 import java.util.ArrayList;
 
 import produccion.ElementoConcurso;
-import produccion.Participante;
 
 public class CriterioVariosIdiomas implements Criterio {
 
@@ -15,7 +14,7 @@ public class CriterioVariosIdiomas implements Criterio {
 
 	@Override
 	public Boolean cumpleConCriterio(ElementoConcurso miembro) {
-		return (miembro.getIdiomas().containsAll(listaIdiomas));
+		return miembro.contieneIdiomas(listaIdiomas);
 	}
 	
 }
