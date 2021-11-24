@@ -43,8 +43,9 @@ public class TemaMusical {
 		ArrayList<String> copia = new ArrayList<>(this.instrumentosImplementados);
 		return copia;
 	}
-	public Boolean puedeInterpretarlo (ElementoConcurso mimebro) {
-		return this.Estrategia.cumpleConCriterio(mimebro);
+	
+	public Boolean puedeInterpretarlo (ElementoConcurso miembro) {
+		return this.Estrategia.cumpleConCriterio(miembro);
 	}
 	
 }
